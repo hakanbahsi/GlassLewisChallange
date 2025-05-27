@@ -1,0 +1,26 @@
+﻿@page "{id}"
+@model DetailsModel
+
+<h1>Company Details</h1>
+
+<table border="1" cellpadding="6">
+    <tr><td><strong>Name:</strong></td><td>@Model.Company.Name</td></tr>
+    <tr><td><strong>Exchange:</strong></td><td>@Model.Company.Exchange</td></tr>
+    <tr><td><strong>Ticker:</strong></td><td>@Model.Company.Ticker</td></tr>
+    <tr><td><strong>ISIN:</strong></td><td>@Model.Company.Isin</td></tr>
+    <tr><td><strong>Website:</strong></td><td><a href="@Model.Company.Website">@Model.Company.Website</a></td></tr>
+    <tr>
+        <td>
+            <a href="/Companies/Edit/@Model.Company.Id">Edit</a>
+        </td>
+    </tr>
+</table>
+
+<a href="/Index">Back to list</a>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">
+        @Model.ErrorMessage
+    </div>
+}

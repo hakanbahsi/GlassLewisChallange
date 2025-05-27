@@ -1,0 +1,41 @@
+﻿@page
+@model IndexModel
+
+<h1>Companies</h1>
+
+<a href="/Companies/Create">Create New Company</a>
+
+<table border="1" cellpadding="6">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Exchange</th>
+            <th>Ticker</th>
+            <th>ISIN</th>
+            <th>Website</th>
+            <th>Detail</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Companies)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Exchange</td>
+                <td>@item.Ticker</td>
+                <td>@item.Isin</td>
+                <td><a href="@item.Website" target="_blank">@item.Website</a></td>
+                <td>
+                    <a href="/Companies/Details/@item.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">
+        @Model.ErrorMessage
+    </div>
+}

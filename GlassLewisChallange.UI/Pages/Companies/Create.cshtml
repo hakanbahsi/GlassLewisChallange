@@ -1,0 +1,38 @@
+﻿@page
+@model CreateModel
+@{
+    ViewData["Title"] = "Create Company";
+}
+
+<h1>Create Company</h1>
+
+<form method="post">
+    <div>
+        <label>Name</label>
+        <input asp-for="Company.Name" />
+    </div>
+    <div>
+        <label>Exchange</label>
+        <input asp-for="Company.Exchange" />
+    </div>
+    <div>
+        <label>Ticker</label>
+        <input asp-for="Company.Ticker" />
+    </div>
+    <div>
+        <label>ISIN</label>
+        <input asp-for="Company.Isin" />
+    </div>
+    <div>
+        <label>Website</label>
+        <input asp-for="Company.Website" />
+    </div>
+    <button type="submit">Create</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">
+        @Model.ErrorMessage
+    </div>
+}
